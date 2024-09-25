@@ -8,9 +8,9 @@ from langchain_community.agent_toolkits.sql.toolkit import SQLDatabaseToolkit
 from sqlalchemy import create_engine
 from langchain_groq import ChatGroq
 
-st.set_page_config(page_title="AI SQL Assistant", page_icon="🤖", layout="wide")
+st.set_page_config(page_title="DbChat AI SQL Assistant", page_icon="🤖", layout="wide")
 
-st.title("🤖 AI SQL Assistant")
+st.title("🤖 DbChat AI SQL Assistant")
 
 MYSQL = "USE_MYSQL"
 
@@ -32,14 +32,15 @@ with st.sidebar:
         mysql_user = st.text_input("MySQL User")
         mysql_password = st.text_input("MySQL Password", type="password")
         mysql_db = st.text_input("MySQL Database")
-        api_key = st.text_input("Groq API Key", type="password")
+        api_key = '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'
+        # api_key = st.text_input("Groq API Key", type="password")
     else:
         db_uri = None
         api_key = None
 
-    if db_uri == MYSQL and not api_key:
-        st.sidebar.error("Please add the Groq API key")
-        st.stop()
+    # if db_uri == MYSQL and not api_key:
+    #     st.sidebar.error("Please add the Groq API key")
+    #     st.stop()
 
     if api_key:
         llm = ChatGroq(groq_api_key=api_key, model_name="llama-3.1-70b-versatile", streaming=True)
