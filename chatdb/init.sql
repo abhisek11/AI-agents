@@ -11,6 +11,14 @@ userId int,
 caption varchar(100)
 );
 
+
+
+create table if not exists orders(
+orderId int primary key,
+userId int,
+items varchar(100)
+);
+
 insert into users(userId,userName,email)
 values
 (1,"Gourav","abc@gmail.com"),
@@ -22,3 +30,9 @@ values
 (51,"587","rain"),
 (2,"963","water"),
 (3,"821","sunny");
+
+insert into orders(orderId,userId,items)
+values
+(1,"1","['cable','book', 'computer']"),
+(2,"3","['chair','cap', 'mobile']"),
+(3,"1","['chair','mat', 'cloths', 'computer']");
